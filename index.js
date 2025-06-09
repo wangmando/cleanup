@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const missionRoutes = require('./routes/missionRoutes');
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/api/missions', missionRoutes);
 
 app.get('/', (req, res) => {
   res.send('치워조이 백엔드 서버 실행 중!');
